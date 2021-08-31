@@ -1,3 +1,4 @@
+![AnalyticsServerConf (1)](https://user-images.githubusercontent.com/37985054/131468123-2ac3b96c-d977-4182-add4-8ebcc0608600.jpg)
 # Code Analytics Server Pack in Docker
 ## Used tools:
 - [Gitea](https://gitea.io/en-us/)
