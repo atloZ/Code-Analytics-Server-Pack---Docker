@@ -28,13 +28,18 @@ All servers must be configured on first run.
 - Create new organizations
 <br/>
 <br/>
-## Jenkins
-### Install plugins. "Dashboard -> Manage Jenkins -> Plugin Manager -> Available"
-Select:
-- Gitea
-- SonarQube Scanner
 
-and restart
+## Jenkins
+### Config Jenkins server:
+- Install plugins. "Dashboard -> Manage Jenkins -> Plugin Manager -> Available"
+    - Gitea
+    - SonarQube Scanner
+    - <font color="yellow"> Restart </font>
+- Set Jenkins server docker url 
+    - Go to "Dashboard -> Manage Jenkins -> Configure System"
+    - Scroll down to "Jenkins Location"
+    - Jenkins URL: "http://<Jenkins_container_name>:8080/"
+    - <font color="green"> Save </font>
 <br/>
 <br/>
 
@@ -51,9 +56,27 @@ and restart
     - Projects->Credentials: add your Gitea user
     - Projects->Owner: Enter Gitea organizations name
     - <font color="green"> Save </font>
+### Config SonarQube connection:
+- Add server
+    - Go to "Dashboard -> Manage Jenkins -> Configure System"
+    - Scroll down to "SonarQube servers"
+    - Server URL: "http://<Gitea_container_name>:9000"
+    - Server authentication token
+        - Kind: Secret text
+        - Secret: SonarQubeToken
+        - ID: SonarQubeToken
+        - Add
+    - Select Server authentication token
+    - <font color="green"> Save </font>
 <br/>
 <br/>
 
 ## SonarQube
+### Generate Tokens
+- Go to "My Account -> Security -> Generate Tokens"
+- Enter text
+- Click "Generate" button
+- Copy token
+
 ### Install plugin.
 - C# Code Quality and Security
